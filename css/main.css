@@ -1,0 +1,102 @@
+/*
+  ----------------------------------------
+    Reset and Basic styles
+  ----------------------------------------
+*/
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ecf0f1;
+    color: #7f8c8d;
+    font: 26px 'Roboto', Arial, sans-serif;
+    min-width: 700px;
+}
+
+/*
+  ----------------------------------------
+    Header
+  ----------------------------------------
+*/
+.main-header {
+    text-align: center;
+    margin: 50px 0;
+}
+.main-header h1 {
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.main-header h1 span {
+    color: #2c3e50;
+}
+.main-header h2 {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+/*
+  ----------------------------------------
+    Keyboard
+  ----------------------------------------
+*/
+.keyboard {
+    text-align: center;
+    background: #222;
+    padding: 50px;
+}
+.line {
+    margin-bottom: 20px;
+}
+.key {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: #bdc3c7;
+    color: #ecf0f1;
+    text-transform: uppercase;
+    padding-top: 10px;
+    box-shadow: 0 5px 0px 0 #7f8c8d;
+    font-weight: 300;
+    font-size: 20px;
+    transition: all .1s ease;
+}
+.key.blank {
+    color: #bdc3c7;
+    opacity: 0.5;
+}
+.key.space {
+    width: 400px;
+}
+
+.key.pressed {
+    box-shadow: none;
+    background: #7f8c8d;
+    transform: translateY(5px);    
+}
+
+/*
+  ----------------------------------------
+    Author
+  ----------------------------------------
+*/
+footer {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 50px;
+}
+footer a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+}
+footer a:hover {
+    border-bottom: 1px solid;
+}
