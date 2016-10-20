@@ -1,10 +1,7 @@
 var level = {
     current: 0,
 
-    list: [
-        ['q', 'w', 'e', 'r'],
-        ['q', 'w', 'e', 'r', 't'],
-    ]
+    list: []
 }
 
 var game = {
@@ -15,12 +12,15 @@ var game = {
         68: 'd', 70: 'f', 71: 'g', 72: 'h',
         74: 'j', 75: 'k', 76: 'l', 90: 'z',
         88: 'x', 67: 'c', 86: 'v', 66: 'b',
-        78: 'n', 77: 'm'
+        78: 'n', 77: 'm', 32: 'space', 13: 'enter'
     },
 
     position: 0,
 
     detectKey: function(e) {
+        
+        game.generate(game.allowedKeys[e.keyCode]);
+
         var key = game.allowedKeys[e.keyCode],
             rqd = level.list[level.current][game.position];
 
@@ -36,6 +36,16 @@ var game = {
         } else {
             // console.log('errou!');
             game.position = 0;            
+        }
+    },
+
+    generateLevel: [],
+    generate: function(key) {
+        if ( key !== 'enter' ) {
+            game.generateLevel.push(key);
+        } else {
+            console.log(game.generateLevel);
+            game.generateLevel = [];
         }
     },
 
