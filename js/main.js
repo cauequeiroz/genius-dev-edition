@@ -1,10 +1,20 @@
-var level = {
+// ========================================
+//  level
+// ========================================
+var Level = {
     current: 0,
 
-    list: []
-}
+    list: [
+        ["s", "t", "a", "r", "t"],
+        ["c", "a", "u", "e"],
+        ["q", "u", "e", "i", "r", "o", "z"]
+    ]
+};
 
-var game = {
+// ========================================
+//  Keyboard
+// ========================================
+var Keyboard = {
     allowedKeys: {
         81: 'q', 87: 'w', 69: 'e', 82: 'r',
         84: 't', 89: 'y', 85: 'u', 73: 'i',
@@ -15,44 +25,60 @@ var game = {
         78: 'n', 77: 'm', 32: 'space', 13: 'enter'
     },
 
-    position: 0,
+    position: 0
+};
 
-    detectKey: function(e) {
-        
-        game.generate(game.allowedKeys[e.keyCode]);
-
-        var key = game.allowedKeys[e.keyCode],
-            rqd = level.list[level.current][game.position];
-
-        if ( key === rqd ) {
-            // console.log('acertou!');
-            game.position++;            
-
-            if ( game.position === level.list[level.current].length ) {
-                // console.log('Finish level!');
-                game.position = 0;
-                level.current++;
-            }
-        } else {
-            // console.log('errou!');
-            game.position = 0;            
-        }
-    },
+// ========================================
+//  Game Engine
+// ========================================
+var Game = {
 
     generateLevel: [],
     generate: function(key) {
         if ( key !== 'enter' ) {
-            game.generateLevel.push(key);
+            Game.generateLevel.push(key);
         } else {
-            console.log(game.generateLevel);
-            game.generateLevel = [];
+            console.log(Game.generateLevel);
+            Game.generateLevel = [];
+        }
+    },
+
+    detectKey: function(e) {        
+        Game.generate(Keyboard.allowedKeys[e.keyCode]);
+
+        var level = Level.list[Level.current],
+            key = Keyboard.allowedKeys[e.keyCode],
+            rqd = level[Keyboard.position];
+
+        if ( key === rqd ) {
+            console.log('acertou!');
+            Keyboard.position++;            
+
+            if ( Keyboard.position === level.length ) {
+                if ( !Level.current ) {
+                    console.log('Start Game!');
+                } else {
+                    console.log('Finish Level');
+                }
+                Keyboard.position = 0;
+                Level.current++;
+            }
+        } else {
+            console.log('errou!');
+            Keyboard.position = 0;
+            
+            if ( Level.current ) {
+                Level.current = 1;
+            }
         }
     },
 
     init: function() {
-        // Detect key press
-        document.addEventListener('keydown', game.detectKey);
+        document.addEventListener('keydown', Game.detectKey);
     }
 }
 
-game.init();
+// ========================================
+//  Initializate application
+// ========================================
+Game.init();
