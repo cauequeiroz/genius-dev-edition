@@ -75,6 +75,12 @@ var UI = {
             elem = document.querySelector('[data-key="'+key+'"]');
         
         if ( elem ) elem.classList.remove('pressed');
+    },
+
+    changeText: function(text) {
+        var message = '$ ' + text;
+
+        document.querySelector('.main-header h2').innerHTML = message;
     }
 };
 
