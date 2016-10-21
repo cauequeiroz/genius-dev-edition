@@ -25,30 +25,16 @@ var Keyboard = {
         78: 'n', 77: 'm', 32: 'space', 13: 'enter'
     },
 
-    position: 0
-};
-
-// ========================================
-//  Game Engine
-// ========================================
-var Game = {
-
-    generateLevel: [],
-    generate: function(key) {
-        if ( key !== 'enter' ) {
-            Game.generateLevel.push(key);
-        } else {
-            console.log(Game.generateLevel);
-            Game.generateLevel = [];
-        }
-    },
+    position: 0,
 
     detectKey: function(e) {        
-        Game.generate(Keyboard.allowedKeys[e.keyCode]);
-
         var level = Level.list[Level.current],
             key = Keyboard.allowedKeys[e.keyCode],
             rqd = level[Keyboard.position];
+
+        if ( Game.allowUser ) {
+            UI.pressKey(key);
+        }
 
         if ( key === rqd ) {
             console.log('acertou!');
@@ -71,10 +57,36 @@ var Game = {
                 Level.current = 1;
             }
         }
+    }
+};
+
+// ========================================
+//  UI Control
+// ========================================
+var UI = {
+    pressKey: function(key) {
+        var elem = document.querySelector('[data-key="'+key+'"]');
+        
+        if ( elem ) elem.classList.add('pressed');
     },
 
+    releaseKey: function(e) {
+        var key  = Keyboard.allowedKeys[e.keyCode],
+            elem = document.querySelector('[data-key="'+key+'"]');
+        
+        if ( elem ) elem.classList.remove('pressed');
+    }
+};
+
+// ========================================
+//  Game Engine
+// ========================================
+var Game = {
+    allowUser: true,
+
     init: function() {
-        document.addEventListener('keydown', Game.detectKey);
+        document.addEventListener('keydown', Keyboard.detectKey);
+        document.addEventListener('keyup', UI.releaseKey);
     }
 }
 
