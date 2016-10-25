@@ -23,7 +23,7 @@ var Game = {
         
         UI.type(Level.getLevelKeys(), function() {
             UI.changeColor('wait');
-            Game.allowUser = true;            
+            Game.allowUser = true;
         });
     },
 
@@ -36,7 +36,6 @@ var Game = {
         Level.current = 0;
         Level.generateLevelList();
         Sound.play('wrong');
-        Game.nextLevel();
     },
 
     init: function() {
