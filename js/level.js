@@ -3,9 +3,11 @@
 // ========================================
 
 var Level = {
+    score: 0,
+
     current: 0,
 
-    maxLevel: 0,
+    maxLevel: 5,    
 
     list: [],
 
@@ -25,7 +27,7 @@ var Level = {
             keys.push(list[i]);
         }
 
-        for ( var i=0; i<50; i++ ) {
+        for ( var i=0; i<=Level.maxLevel; i++ ) {
             for ( var j=0; j<count; j++ ) {
                 var n = Math.floor(Math.random() * keys.length);
 
@@ -39,7 +41,7 @@ var Level = {
     },
 
     reset: function() {
-        Level.maxLevel = Level.current;
+        Level.score = Level.current;
         Level.current = 0;
         Level.generateLevelList();
     }

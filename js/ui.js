@@ -3,11 +3,12 @@
 // ========================================
 
 var UI = {
-    updateHUD: function(current, max) {
+    updateHUD: function() {
         var elem = document.querySelector('.keyboard .hud');
 
-        elem.querySelector('strong').innerHTML = current;
-        elem.querySelector('.best strong').innerHTML = max;
+        elem.querySelector('.current').innerHTML = Level.current;
+        elem.querySelector('.max').innerHTML = Level.maxLevel;
+        elem.querySelector('.best strong').innerHTML = Level.score;
     },
 
     changeColor: function(type) {

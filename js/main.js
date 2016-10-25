@@ -14,12 +14,17 @@ var Game = {
     allowUser: true,
 
     nextLevel: function() {
+        if ( Level.current === Level.maxLevel ) {
+            Game.win();
+            return;
+        }
+
         Game.allowUser = false;
         Keyboard.position = 0;
         Level.current++;
         
         UI.changeColor('wait');
-        UI.updateHUD(Level.current, Level.maxLevel);
+        UI.updateHUD();
         
         UI.type(Level.getLevelKeys(), function() {
             UI.changeColor('wait');
@@ -35,12 +40,24 @@ var Game = {
     failType: function() {
         Level.reset();
         Sound.play('wrong');
-        UI.updateHUD(Level.current, Level.maxLevel);
+        UI.updateHUD();
+    },
+
+    win: function() {
+        Game.allowUser = false;
+        UI.changeColor('win');
+        setTimeout(function() {
+            Game.allowUser = true;
+            Level.resetAll();
+            UI.changeColor('win');
+            UI.updateHUD();            
+        }, 1000);
     },
 
     init: function() {
         Sound.load();
         Level.generateLevelList();
+        UI.updateHUD();
 
         document.addEventListener('keydown', Keyboard.press);
         document.addEventListener('keyup', Keyboard.release);

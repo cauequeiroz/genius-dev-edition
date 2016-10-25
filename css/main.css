@@ -54,6 +54,9 @@ body {
 .keyboard.wait {
     background: #2c3e50;
 }
+.keyboard.win {
+    background: #27ae60;
+}
 
 .line {
     margin-bottom: 20px;
