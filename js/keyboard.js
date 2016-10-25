@@ -44,5 +44,9 @@ var Keyboard = {
 
     release: function(e) {
         UI.releaseKey(Keyboard.allowedKeys[e.keyCode]);
+    },
+
+    getKeys: function() {
+        return Keyboard.allowedKeys;
     }
 };

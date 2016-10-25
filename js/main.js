@@ -29,6 +29,7 @@ var Game = {
 
     init: function() {
         Sound.load();
+        Level.generateLevelList();
 
         document.addEventListener('keydown', Keyboard.press);
         document.addEventListener('keyup', Keyboard.release);
