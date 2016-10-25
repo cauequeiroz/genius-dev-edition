@@ -15,33 +15,26 @@ var Keyboard = {
     position: 0,
 
     detectKey: function(e) {        
-        var level = Level.list[Level.current],
-            key = Keyboard.allowedKeys[e.keyCode],
-            rqd = level[Keyboard.position];
-
         if ( Game.allowUser ) {
+            var level = Level.list[Level.current],
+                key = Keyboard.allowedKeys[e.keyCode],
+                rqd = level[Keyboard.position];
+
             UI.pressKey(key);
-        }
 
-        if ( key === rqd ) {
-            console.log('acertou!');
-            Keyboard.position++;            
+            if ( key === rqd ) {
+                Keyboard.position++;            
 
-            if ( Keyboard.position === level.length ) {
-                if ( !Level.current ) {
-                    console.log('Start Game!');
-                } else {
-                    console.log('Finish Level');
+                if ( Keyboard.position === level.length ) {
+                    Game.nextLevel();
                 }
+            } else {
                 Keyboard.position = 0;
-                Level.current++;
-            }
-        } else {
-            console.log('errou!');
-            Keyboard.position = 0;
-            
-            if ( Level.current ) {
-                Level.current = 1;
+                
+                if ( Level.current ) {
+                    Level.current = 0;
+                    Game.nextLevel();
+                }
             }
         }
     }
