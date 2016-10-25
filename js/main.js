@@ -8,16 +8,20 @@ var Game = {
     allowUser: true,
 
     nextLevel: function() {
+        Game.allowUser = false;
         Keyboard.position = 0;
         Level.current++;
 
-        UI.changeText('level '+Level.current);
         
+        UI.changeText('level '+Level.current);        
+        UI.type(Level.getLevelKeys(), function() {
+            Game.allowUser = true;
+        });
     },
 
     init: function() {
-        document.addEventListener('keydown', Keyboard.detectKey);
-        document.addEventListener('keyup', UI.releaseKey);
+        document.addEventListener('keydown', Keyboard.press);
+        document.addEventListener('keyup', Keyboard.release);
     }
 }
 

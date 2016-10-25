@@ -14,7 +14,7 @@ var Keyboard = {
 
     position: 0,
 
-    detectKey: function(e) {        
+    press: function(e) {        
         if ( Game.allowUser ) {
             var level = Level.list[Level.current],
                 key = Keyboard.allowedKeys[e.keyCode],
@@ -37,5 +37,11 @@ var Keyboard = {
                 }
             }
         }
+    },
+
+    release: function(e) {
+        var key = Keyboard.allowedKeys[e.keyCode];
+
+        UI.releaseKey(key);
     }
 };
