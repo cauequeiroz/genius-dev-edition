@@ -27,16 +27,13 @@ var Keyboard = {
                 Keyboard.position++;            
 
                 if ( Keyboard.position === level.length ) {
-                    Sound.play('right');
-                    Game.nextLevel();
+                    Game.correctType();
                 }
             } else {
                 Keyboard.position = 0;
                 
                 if ( Level.current ) {
-                    Level.current = 0;
-                    Sound.play('wrong');
-                    Game.nextLevel();
+                    Game.failType();
                 }
             }
         }

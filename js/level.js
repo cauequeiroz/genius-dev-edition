@@ -4,13 +4,15 @@
 var Level = {
     current: 0,
 
-    list: [["s", "t", "a", "r", "t"]],
+    list: [],
 
     getLevelKeys: function() {
         return this.list[this.current];
     },
 
     generateLevelList: function() {
+        Level.list = [["s", "t", "a", "r", "t"]];
+
         var list  = Keyboard.getKeys(),
             count = 2,
             keys  = [],       
@@ -32,6 +34,6 @@ var Level = {
             if ( i % 5 === 0 ) count++;
         }
 
-        console.log(Level.list);
+
     }
 };

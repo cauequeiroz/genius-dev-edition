@@ -18,13 +18,25 @@ var Game = {
         Keyboard.position = 0;
         Level.current++;
         
-        UI.changeText('level '+Level.current);
+        UI.changeText('level <strong>'+Level.current+'</strong> / 50');
         UI.changeColor('wait');
         
         UI.type(Level.getLevelKeys(), function() {
             UI.changeColor('wait');
             Game.allowUser = true;            
         });
+    },
+
+    correctType: function() {
+        Sound.play('right');
+        Game.nextLevel();
+    },
+
+    failType: function() {
+        Level.current = 0;
+        Level.generateLevelList();
+        Sound.play('wrong');
+        Game.nextLevel();
     },
 
     init: function() {
