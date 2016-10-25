@@ -84,6 +84,20 @@ body {
     transform: translateY(5px);    
 }
 
+.hud {
+    width: 400px;
+    margin: 50px auto 0;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.4;
+}
+.hud .best {
+    float: right;
+}
+
 /*
   ----------------------------------------
     Author

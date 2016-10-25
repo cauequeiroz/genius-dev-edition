@@ -18,8 +18,8 @@ var Game = {
         Keyboard.position = 0;
         Level.current++;
         
-        UI.changeText('level <strong>'+Level.current+'</strong> / 50');
         UI.changeColor('wait');
+        UI.updateHUD(Level.current, Level.maxLevel);
         
         UI.type(Level.getLevelKeys(), function() {
             UI.changeColor('wait');
@@ -33,9 +33,9 @@ var Game = {
     },
 
     failType: function() {
-        Level.current = 0;
-        Level.generateLevelList();
+        Level.reset();
         Sound.play('wrong');
+        UI.updateHUD(Level.current, Level.maxLevel);
     },
 
     init: function() {

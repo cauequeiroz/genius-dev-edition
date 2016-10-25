@@ -4,6 +4,8 @@
 var Level = {
     current: 0,
 
+    maxLevel: 0,
+
     list: [],
 
     getLevelKeys: function() {
@@ -33,7 +35,11 @@ var Level = {
             arr = [];
             if ( i % 5 === 0 ) count++;
         }
+    },
 
-
+    reset: function() {
+        Level.maxLevel = Level.current;
+        Level.current = 0;
+        Level.generateLevelList();
     }
 };

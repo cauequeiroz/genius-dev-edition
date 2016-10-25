@@ -3,11 +3,14 @@
 // ========================================
 
 var UI = {
-    changeText: function(text) {
-        document.querySelector('.main-header h2').innerHTML = '$ ' + text;
+    updateHUD: function(current, max) {
+        var elem = document.querySelector('.keyboard .hud');
+
+        elem.querySelector('strong').innerHTML = current;
+        elem.querySelector('.best strong').innerHTML = max;
     },
 
-    changeColor: function(type, remove) {
+    changeColor: function(type) {
         document.querySelector('.keyboard').classList.toggle(type);
     },
 
