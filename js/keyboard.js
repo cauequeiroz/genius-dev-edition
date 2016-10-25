@@ -1,6 +1,7 @@
 // ========================================
 //  Keyboard
 // ========================================
+
 var Keyboard = {
     allowedKeys: {
         81: 'q', 87: 'w', 69: 'e', 82: 'r',
@@ -26,7 +27,7 @@ var Keyboard = {
                 Keyboard.position++;            
 
                 if ( Keyboard.position === level.length ) {
-                    UI.changeColor('right', true);
+                    Sound.play('right');
                     Game.nextLevel();
                 }
             } else {
@@ -34,7 +35,7 @@ var Keyboard = {
                 
                 if ( Level.current ) {
                     Level.current = 0;
-                    UI.changeColor('wrong', true);
+                    Sound.play('wrong');
                     Game.nextLevel();
                 }
             }

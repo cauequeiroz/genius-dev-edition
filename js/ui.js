@@ -1,6 +1,7 @@
 // ========================================
 //  UI Control
 // ========================================
+
 var UI = {
     changeText: function(text) {
         document.querySelector('.main-header h2').innerHTML = '$ ' + text;
@@ -13,7 +14,10 @@ var UI = {
     pressKey: function(key) {
         var elem = document.querySelector('[data-key="'+key+'"]');
         
-        if ( elem ) elem.classList.add('pressed');
+        if ( elem ) {
+            elem.classList.add('pressed');
+            Sound.play('key');
+        }        
     },
 
     releaseKey: function(key) {
@@ -31,15 +35,15 @@ var UI = {
             setTimeout(function() {
                 UI.releaseKey(keys[count]);
 
-                if ( count === keys.length ) {
+                if ( count === keys.length-1 ) {
                     callback () ;    
                 } else {
                     count++;
-                    typeNext();
+                    setTimeout(function() { typeNext() }, 500);
                 }                
-            }, 500);
+            }, 200);
         }
 
-        setTimeout(function() { typeNext() }, 1500);
+        setTimeout(function() { typeNext() }, 1000);
     }
 };

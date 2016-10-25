@@ -6,6 +6,7 @@
     js/ui.js: Control the view
     js/level: Generate and storage levels
     js/keyboard.js: Control keyboard input
+    js/sound.js: Controll all game sounds
 
 ============================================ */
 
@@ -27,6 +28,8 @@ var Game = {
     },
 
     init: function() {
+        Sound.load();
+
         document.addEventListener('keydown', Keyboard.press);
         document.addEventListener('keyup', Keyboard.release);
     }

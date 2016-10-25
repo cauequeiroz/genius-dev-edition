@@ -68,7 +68,7 @@ body {
     box-shadow: 0 5px 0px 0 #7f8c8d;
     font-weight: 300;
     font-size: 20px;
-    transition: all .1s ease;
+    transition: all .05s ease;
 }
 .key.blank {
     color: #bdc3c7;
