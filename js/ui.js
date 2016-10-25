@@ -2,6 +2,14 @@
 //  UI Control
 // ========================================
 var UI = {
+    changeText: function(text) {
+        document.querySelector('.main-header h2').innerHTML = '$ ' + text;
+    },
+
+    changeColor: function(type, remove) {
+        document.querySelector('.keyboard').classList.toggle(type);
+    },
+
     pressKey: function(key) {
         var elem = document.querySelector('[data-key="'+key+'"]');
         
@@ -12,14 +20,6 @@ var UI = {
         var elem = document.querySelector('[data-key="'+key+'"]');
         
         if ( elem ) elem.classList.remove('pressed');
-    },
-
-    changeText: function(text) {
-        document.querySelector('.main-header h2').innerHTML = '$ ' + text;
-    },
-
-    changeColor: function(type, remove) {
-        document.querySelector('.keyboard').classList.toggle(type);
     },
 
     type: function(keys, callback) {
@@ -35,13 +35,11 @@ var UI = {
                     callback () ;    
                 } else {
                     count++;
-                    typeNext()
+                    typeNext();
                 }                
             }, 500);
         }
 
-        setTimeout(function() {
-            typeNext();
-        }, 1000);        
+        setTimeout(function() { typeNext() }, 1500);
     }
 };

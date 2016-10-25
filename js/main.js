@@ -16,13 +16,13 @@ var Game = {
         Game.allowUser = false;
         Keyboard.position = 0;
         Level.current++;
-
         
         UI.changeText('level '+Level.current);
         UI.changeColor('wait');
+        
         UI.type(Level.getLevelKeys(), function() {
-            Game.allowUser = true;
             UI.changeColor('wait');
+            Game.allowUser = true;            
         });
     },
 
