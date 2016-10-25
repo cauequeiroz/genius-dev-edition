@@ -15,9 +15,11 @@ var UI = {
     },
 
     changeText: function(text) {
-        var message = '$ ' + text;
+        document.querySelector('.main-header h2').innerHTML = '$ ' + text;
+    },
 
-        document.querySelector('.main-header h2').innerHTML = message;
+    changeColor: function(type, remove) {
+        document.querySelector('.keyboard').classList.toggle(type);
     },
 
     type: function(keys, callback) {

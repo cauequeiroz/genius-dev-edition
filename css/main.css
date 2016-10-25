@@ -49,7 +49,10 @@ body {
     text-align: center;
     background: #222;
     padding: 50px;
+    transition: all .2s ease;
 }
+.keyboard.wait  { background: #2c3e50; }
+
 .line {
     margin-bottom: 20px;
 }

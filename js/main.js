@@ -1,9 +1,14 @@
-// ========================================
-//
-//  Genius Dev Edition
-//  Developed by Caue Queiroz
-//
-// ========================================
+/* ========================================
+
+    Genius Dev Edition
+    Developed by Caue Queiroz
+
+    js/ui.js: Control the view
+    js/level: Generate and storage levels
+    js/keyboard.js: Control keyboard input
+
+============================================ */
+
 var Game = {
     allowUser: true,
 
@@ -13,9 +18,11 @@ var Game = {
         Level.current++;
 
         
-        UI.changeText('level '+Level.current);        
+        UI.changeText('level '+Level.current);
+        UI.changeColor('wait');
         UI.type(Level.getLevelKeys(), function() {
             Game.allowUser = true;
+            UI.changeColor('wait');
         });
     },
 
