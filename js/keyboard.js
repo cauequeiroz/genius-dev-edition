@@ -3,6 +3,8 @@
 // ========================================
 
 var Keyboard = {
+    position: 0,
+
     allowedKeys: {
         81: 'q', 87: 'w', 69: 'e', 82: 'r',
         84: 't', 89: 'y', 85: 'u', 73: 'i',
@@ -11,9 +13,7 @@ var Keyboard = {
         74: 'j', 75: 'k', 76: 'l', 90: 'z',
         88: 'x', 67: 'c', 86: 'v', 66: 'b',
         78: 'n', 77: 'm', 32: 'space'
-    },
-
-    position: 0,
+    },    
 
     press: function(e) {        
         if ( Game.allowUser ) {
@@ -26,15 +26,11 @@ var Keyboard = {
             if ( key === rqd ) {
                 Keyboard.position++;            
 
-                if ( Keyboard.position === level.length ) {
-                    Game.correctType();
-                }
+                if ( Keyboard.position === level.length ) Game.correctType();
             } else {
                 Keyboard.position = 0;
                 
-                if ( Level.current ) {
-                    Game.failType();
-                }
+                if ( Level.current ) Game.failType();
             }
         }
     },
