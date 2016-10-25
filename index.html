@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+    <!-- Header -->
     <header class="main-header">
         <h1>genius-<span>dev</span>-edition</h1>
         <h2>$ type start, wait and let's see what you can do</h2>
     </header>
 
+    <!-- Keyboard -->
     <section class="keyboard">
         <div class="line">
             <div class="key" data-key="q">q</div>
@@ -51,20 +52,31 @@
         <div class="line">
             <div class="key space" data-key="space">space</div>
         </div>
+
+        <!-- HUD -->
         <div class="hud">
             <p>level : <strong class="current">0</strong> / <span class="max">50</span>
-            <span class="best">best: <strong>0</strong></span></p>
+            <span class="best">best: <strong class="score">0</strong></span></p>
         </div>
     </section>
 
+    <!-- Author -->
     <footer class="main-footer">
         <p>developed by <a href="http://github.com/cauequeiroz/genius-dev-edition">Caue Queiroz</a></p>
     </footer>
 
+    <!-- Libs -->
     <script src="js/sound.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/level.js"></script>
     <script src="js/keyboard.js"></script>
+
+    <!-- Core -->
     <script src="js/main.js"></script>
+
+    <!-- with great power comes great responsibility -->
+    <script>
+        console.log('%cPoxa, assim o game perde a graça, não? :( haha', 'color: red; font-size: 20px; border-left: 10px solid red; padding-left: 20px; font-style: italic;');
+    </script>
 </body>
 </html>

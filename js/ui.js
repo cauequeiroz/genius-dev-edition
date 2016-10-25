@@ -8,7 +8,7 @@ var UI = {
 
         elem.querySelector('.current').innerHTML = Level.current;
         elem.querySelector('.max').innerHTML = Level.maxLevel;
-        elem.querySelector('.best strong').innerHTML = Level.score;
+        elem.querySelector('.score').innerHTML = Level.score;
     },
 
     changeColor: function(type) {

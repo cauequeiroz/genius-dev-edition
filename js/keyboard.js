@@ -13,8 +13,12 @@ var Keyboard = {
         74: 'j', 75: 'k', 76: 'l', 90: 'z',
         88: 'x', 67: 'c', 86: 'v', 66: 'b',
         78: 'n', 77: 'm', 32: 'space'
-    },    
+    },
 
+    getKeys: function() {
+        return Keyboard.allowedKeys;
+    },
+    
     press: function(e) {        
         if ( Game.allowUser ) {
             var level = Level.getLevelKeys(),
@@ -37,9 +41,5 @@ var Keyboard = {
 
     release: function(e) {
         UI.releaseKey(Keyboard.allowedKeys[e.keyCode]);
-    },
-
-    getKeys: function() {
-        return Keyboard.allowedKeys;
     }
 };

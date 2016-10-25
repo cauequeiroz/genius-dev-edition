@@ -14,13 +14,14 @@ var Game = {
     allowUser: true,
 
     nextLevel: function() {
+        Game.allowUser = false;
+        Keyboard.position = 0;
+
         if ( Level.current === Level.maxLevel ) {
             Game.win();
             return;
         }
-
-        Game.allowUser = false;
-        Keyboard.position = 0;
+        
         Level.current++;
         
         UI.changeColor('wait');
@@ -38,20 +39,21 @@ var Game = {
     },
 
     failType: function() {
-        Level.reset();
         Sound.play('wrong');
+        Level.reset();        
         UI.updateHUD();
     },
 
     win: function() {
-        Game.allowUser = false;
         UI.changeColor('win');
+
         setTimeout(function() {
             Game.allowUser = true;
-            Level.resetAll();
+            
+            Level.reset();
             UI.changeColor('win');
             UI.updateHUD();            
-        }, 1000);
+        }, 5000);
     },
 
     init: function() {

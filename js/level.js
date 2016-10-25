@@ -7,12 +7,18 @@ var Level = {
 
     current: 0,
 
-    maxLevel: 5,    
+    maxLevel: 50,   
 
     list: [],
 
     getLevelKeys: function() {
         return this.list[this.current];
+    },
+
+    reset: function() {
+        Level.score = Level.current;
+        Level.current = 0;
+        Level.generateLevelList();
     },
 
     generateLevelList: function() {
@@ -38,11 +44,5 @@ var Level = {
             arr = [];
             if ( i % 5 === 0 ) count++;
         }
-    },
-
-    reset: function() {
-        Level.score = Level.current;
-        Level.current = 0;
-        Level.generateLevelList();
-    }
+    }    
 };
