@@ -37,7 +37,7 @@ var Level = {
         }
 
         for ( var i=0; i<=Level.maxLevel; i++ ) {
-            for ( var j=0; j<count; j++ ) {
+            for ( var j=1; j<count; j++ ) {
                 var n = Math.floor(Math.random() * keys.length);
 
                 arr.push(keys[n]);
@@ -45,7 +45,7 @@ var Level = {
 
             Level.list.push(arr);
             arr = [];
-            if ( i % 5 === 0 ) count++;
+            count++;
         }
     }    
 };
