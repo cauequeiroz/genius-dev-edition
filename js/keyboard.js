@@ -21,6 +21,7 @@ var Keyboard = {
     
     press: function(e) {
         e.preventDefault();     
+
         if ( Game.allowUser ) {
             var level = Level.getLevelKeys(),
                 key = Keyboard.allowedKeys[e.keyCode],
@@ -29,12 +30,12 @@ var Keyboard = {
             UI.pressKey(key);
 
             if ( key === rqd ) {
-                Keyboard.position++;            
+                Keyboard.position++;
 
                 if ( Keyboard.position === level.length ) Game.correctType();
             } else {
                 Keyboard.position = 0;
-                
+
                 if ( Level.current ) Game.failType();
             }
         }
