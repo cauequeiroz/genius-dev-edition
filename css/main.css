@@ -112,7 +112,7 @@ footer {
     font-size: 16px;
     font-weight: 300;
     text-align: center;
-    margin-top: 50px;
+    margin: 50px 0 100px;
 }
 footer a {
     color: inherit;
