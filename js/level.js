@@ -19,6 +19,9 @@ var Level = {
         Level.score = Level.current;
         Level.current = 0;
         Level.generateLevelList();
+
+        var tweet = 'https://twitter.com/intent/tweet?text=Que jogo viciante! Eu consegui chegar até o nível '+Level.score+', e você? :p%20http://cauequeiroz.com.br/genius-dev-edition/%20&hashtags=geniusDevEdition';
+        document.querySelector('.tt').setAttribute('href', tweet);
     },
 
     generateLevelList: function() {
