@@ -19,7 +19,8 @@ var Keyboard = {
         return Keyboard.allowedKeys;
     },
     
-    press: function(e) {        
+    press: function(e) {
+        e.preventDefault();     
         if ( Game.allowUser ) {
             var level = Level.getLevelKeys(),
                 key = Keyboard.allowedKeys[e.keyCode],
