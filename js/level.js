@@ -16,7 +16,7 @@ var Level = {
     },
 
     reset: function() {
-        Level.score = Level.current;
+        Level.score = Math.max(Level.current, Level.score);
         Level.current = 0;
         Level.generateLevelList();
 
